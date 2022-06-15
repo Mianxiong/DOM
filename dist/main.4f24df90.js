@@ -118,7 +118,13 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
 // const api2 = api1.find('.child').addClass('red')
 // api1.addClass('green')
-jQuery('.test').find('.child').addClass('red').addClass('blue').addClass('green');
+
+// jQuery('.test').find('.child').addClass('red').addClass('blue').addClass('green')
+
+var api1 = jQuery('.test');
+var api2 = api1.find('.child').addClass('red').addClass('blue').addClass('green');
+var oldApi = api2.end().addClass('yellow');
+//jQuery('.test).find('.child').addClass('red').addClass('blue').addClass('green').end().addClass('yellow')
 },{}],"C:\\Users\\hmx\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\parcel\\src\\builtins\\hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

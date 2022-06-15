@@ -124,6 +124,7 @@ window.jQuery = function (selectorOrArray) {
     // }
     // return api
     return {
+        oldApi: selectorOrArray.oldApi,
         //闭包：函数访问外部的变量
         addClass: function addClass(className) {
             for (var i = 0; i < elements.length; i++) {
@@ -141,8 +142,12 @@ window.jQuery = function (selectorOrArray) {
             // return this 错误
 
             // const newApi = jQuery(array)
-            // return newApi 
+            // return newApi
+            array.oldApi = this; //this就是api，数组是对象，对象可以加属性，this是旧api
             return jQuery(array);
+        },
+        end: function end() {
+            return this.oldApi; //this就是当前的 api//api2  this就是新api
         }
     };
 };
