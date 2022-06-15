@@ -42,6 +42,32 @@ window.jQuery = function (selectorOrArray) {
         },
         end(){
             return this.oldApi //this就是当前的 api//api2  this就是新api
+        },
+        each(fn) {
+            for(let i=0;i<elements.length;i++) {
+                fn.call(null,elements[i],i)
+            }
+            return this
+        },
+        parent() {
+            const array = []
+            this.each((node)=>{
+                if(array.indexOf(node.parentNode) === -1) {
+                    array.push(node.parentNode)
+                }            
+            })
+            return jQuery(array)
+        },
+        children() {
+            const array = []
+            this.each((node)=>{
+                array.push(...node.children)
+                //等价于array.push(node.children[0],node.children[1],node.children[2]...)
+            })
+            return jQuery(array)
+        },
+        print(){
+            console.log(elements)
         }
     }
 }
