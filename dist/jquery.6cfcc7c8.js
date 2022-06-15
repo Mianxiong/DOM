@@ -104,8 +104,13 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   // Override the current require with this new one
   return newRequire;
 })({"jquery.js":[function(require,module,exports) {
-window.jQuery = function (selector) {
-    var elements = document.querySelectorAll(selector);
+window.jQuery = function (selectorOrArray) {
+    var elements = void 0;
+    if (typeof selectorOrArray === 'string') {
+        elements = document.querySelectorAll(selectorOrArray);
+    } else if (selectorOrArray instanceof Array) {
+        elements = selectorOrArray;
+    }
     // api可以操作elements
     // const api = {
     //     //闭包：函数访问外部的变量
@@ -113,7 +118,8 @@ window.jQuery = function (selector) {
     //         for (let i = 0; i < elements.length; i++) {
     //             elements[i].classList.add(className)
     //         }
-    //         return this
+    // return api
+    //         return this //addClass里面的this是api
     //     }
     // }
     // return api
@@ -124,6 +130,19 @@ window.jQuery = function (selector) {
                 elements[i].classList.add(className);
             }
             return this;
+        },
+        find: function find(selector) {
+            var array = [];
+            for (var i = 0; i < elements.length; i++) {
+                array = array.concat(Array.from(elements[i].querySelectorAll(selector)));
+                //array = array+elements2
+            }
+            // return array 错误
+            // return this 错误
+
+            // const newApi = jQuery(array)
+            // return newApi 
+            return jQuery(array);
         }
     };
 };
@@ -156,7 +175,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '2281' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '28552' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

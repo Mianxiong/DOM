@@ -104,11 +104,21 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   // Override the current require with this new one
   return newRequire;
 })({"main.js":[function(require,module,exports) {
-var api = jQuery('.test'); //不返回元素们，返回api对象
-api.addClass('red').addClass('blue'); //链式操作,this就是api
+// const api = jQuery('.test') //不返回元素们，返回api对象
+// api.addClass('red').addClass('blue').addClass('green') //链式操作,this就是api
 
 //obj.fn(p1) //函数里的this就是obj
 //等价于 obj.fn.call(obj,p1)
+
+// const x1 = jQuery('.test1').find('.child')
+// console.log(x1)
+
+// const api1 = jQuery('.test')
+// api1.addClass('blue')
+
+// const api2 = api1.find('.child').addClass('red')
+// api1.addClass('green')
+jQuery('.test').find('.child').addClass('red').addClass('blue').addClass('green');
 },{}],"C:\\Users\\hmx\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\parcel\\src\\builtins\\hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -138,7 +148,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '2281' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '28552' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
