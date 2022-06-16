@@ -103,36 +103,13 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({"main.js":[function(require,module,exports) {
-// const api = jQuery('.test') //不返回元素们，返回api对象
-// api.addClass('red').addClass('blue').addClass('green') //链式操作,this就是api
-
-//obj.fn(p1) //函数里的this就是obj
-//等价于 obj.fn.call(obj,p1)
-
-// const x1 = jQuery('.test1').find('.child')
-// console.log(x1)
-
-// const api1 = jQuery('.test')
-// api1.addClass('blue')
-
-// const api2 = api1.find('.child').addClass('red')
-// api1.addClass('green')
-
-// jQuery('.test').find('.child').addClass('red').addClass('blue').addClass('green')
-
-// const api1 = jQuery('.test')
-// const api2 = api1.find('.child').addClass('red').addClass('blue').addClass('green')
-// const oldApi = api2.end().addClass('yellow')
-//jQuery('.test).find('.child').addClass('red').addClass('blue').addClass('green').end().addClass('yellow')
-
-// const x = jQuery('.test').find('.child')
-// x.each((div)=>console.log(div))
-
-var x = jQuery('.test');
-// x.parent().print()
-
-x.children().print();
+})({"阻止滚动.js":[function(require,module,exports) {
+x.addEventListener('wheel', function (e) {
+    e.preventDefault();
+});
+x.addEventListener('touchstart', function (e) {
+    e.preventDefault();
+});
 },{}],"C:\\Users\\hmx\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\parcel\\src\\builtins\\hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -303,5 +280,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},["C:\\Users\\hmx\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\parcel\\src\\builtins\\hmr-runtime.js","main.js"], null)
-//# sourceMappingURL=/main.4f24df90.map
+},{}]},{},["C:\\Users\\hmx\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\parcel\\src\\builtins\\hmr-runtime.js","阻止滚动.js"], null)
+//# sourceMappingURL=/阻止滚动.b88adb92.map

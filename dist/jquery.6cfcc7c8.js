@@ -106,7 +106,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"jquery.js":[function(require,module,exports) {
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-window.jQuery = function (selectorOrArray) {
+window.$ = window.jQuery = function (selectorOrArray) {
     var elements = void 0;
     if (typeof selectorOrArray === 'string') {
         elements = document.querySelectorAll(selectorOrArray);
@@ -208,7 +208,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '28552' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '3030' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
